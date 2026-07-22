@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -54,10 +55,64 @@ class Integrante extends Model
     }
 
     /**
+     * Accesor y mutador para el nombre del integrante, 
+     * asegurando que se almacene en mayúsculas y sin espacios innecesarios.
+     */
+
+    protected function nombre(): Attribute
+    {
+        return Attribute::make(
+            set : fn (?string $value) => $value
+                ? mb_strtoupper(trim($value),'UTF-8')
+                : null,
+        );
+    }    
+
+    protected function apellidoPaterno(): Attribute
+    {
+        return Attribute::make(
+            set : fn (?string $value) => $value
+                ? mb_strtoupper(trim($value),'UTF-8')
+                : null,
+        );
+    }    
+
+    protected function apellidoMaterno(): Attribute
+    {
+        return Attribute::make(
+            set : fn (?string $value) => $value
+                ? mb_strtoupper(trim($value),'UTF-8')
+                : null,
+        );
+    }    
+
+    protected function rfc(): Attribute
+    {
+        return Attribute::make(
+            set : fn (?string $value) => $value
+                ? mb_strtoupper(trim($value),'UTF-8')
+                : null,
+        );
+    }
+
+    protected function curp(): Attribute
+    {
+        return Attribute::make(
+            set : fn (?string $value) => $value
+                ? mb_strtoupper(trim($value),'UTF-8')
+                : null,
+        );
+    }
+
+    /**
      * Nombre completo del integrante.
      */
-    public function getNombreCompletoAttribute(): string
+    protected function nombreCompleto(): Attribute
     {
-        return trim("{$this->nombre} {$this->apellido_paterno} {$this->apellido_materno}");
+        return Attribute::make(
+            get: fn () => trim(
+                "{$this->nombre} {$this->apellido_paterno} {$this->apellido_materno}"
+            ),
+        );
     }
 }

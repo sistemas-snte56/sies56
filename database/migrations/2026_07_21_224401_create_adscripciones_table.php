@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('adcripciones', function (Blueprint $table) {
+        Schema::create('adscripciones', function (Blueprint $table) {
             $table->id();
             
             // Relación con la Entidad Persona
@@ -44,6 +44,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('adcripciones');
+        Schema::dropIfExists('adscripciones');
     }
 };

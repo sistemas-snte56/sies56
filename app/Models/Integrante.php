@@ -39,9 +39,9 @@ class Integrante extends Model
     }
 
     /**
-     * Adcripciones (historial de asignaciones) del integrante.
+     * adscripciones (historial de asignaciones) del integrante.
      */
-    public function adcripciones(): HasMany
+    public function adscripciones(): HasMany
     {
         return $this->hasMany(Adscripcion::class);
     }

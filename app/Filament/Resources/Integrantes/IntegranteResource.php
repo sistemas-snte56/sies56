@@ -15,6 +15,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\Integrantes\RelationManagers\AdscripcionesRelationManager;
 
 class IntegranteResource extends Resource
 {
@@ -37,7 +38,7 @@ class IntegranteResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            AdscripcionesRelationManager::class,
         ];
     }
 

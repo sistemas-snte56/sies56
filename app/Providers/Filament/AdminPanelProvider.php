@@ -86,7 +86,10 @@ class AdminPanelProvider extends PanelProvider
                         }
                     </style>
                 ')            
-            ->profile()            
+            ->profile()
+            ->sidebarCollapsibleOnDesktop()
+            ->sidebarFullyCollapsibleOnDesktop()
+            ->collapsedSidebarWidth('4rem')            
             ;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -37,10 +38,21 @@ class Delegacion extends Model
     }
 
     /**
-     * Adcripciones registradas en esta delegación.
+     * adscripciones registradas en esta delegación.
      */
-    public function adcripciones(): HasMany
+    public function adscripciones(): HasMany
     {
         return $this->hasMany(Adscripcion::class);
+    }
+
+    /**
+     * Delegacion completa con región y nivel de delegación.
+     */
+
+    protected function nombreCompleto(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => "{$this->delegacion} {$this->sede } - {$this->nivelDelegacion->nombre}",
+        );
     }
 }

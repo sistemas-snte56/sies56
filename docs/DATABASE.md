@@ -11,9 +11,9 @@ erDiagram
     REGIONES ||--o{ DELEGACIONES : "tiene"
     NIVEL_DELEGACIONES ||--o{ DELEGACIONES : "clasifica"
     NIVEL_INTEGRANTES ||--o{ INTEGRANTES : "clasifica"
-    NIVEL_INTEGRANTES ||--o{ ADCRIPCIONES : "clasifica"
-    INTEGRANTES ||--o{ ADCRIPCIONES : "tiene"
-    DELEGACIONES ||--o{ ADCRIPCIONES : "recibe"
+    NIVEL_INTEGRANTES ||--o{ adscripciones : "clasifica"
+    INTEGRANTES ||--o{ adscripciones : "tiene"
+    DELEGACIONES ||--o{ adscripciones : "recibe"
     INTEGRANTES ||--o| USERS : "opcionalmente accede como"
 ```
 
@@ -97,7 +97,7 @@ Registro unificado y global de la persona (independiente de sus adscripciones).
 
 ---
 
-### `adcripciones`
+### `adscripciones`
 Historial de adscripciones laborales del integrante a una delegación (permite doble adscripción / pluralidad funcional).
 
 | Columna | Tipo | Notas |
@@ -145,9 +145,9 @@ Cuentas de acceso al sistema. Todo usuario operativo debe estar enlazado a un `i
 | `delegaciones` | `region_id` | `regiones.id` | — |
 | `delegaciones` | `nivel_delegacion_id` | `nivel_delegaciones.id` | — |
 | `integrantes` | `nivel_integrante_id` | `nivel_integrantes.id` | — |
-| `adcripciones` | `integrante_id` | `integrantes.id` | CASCADE |
-| `adcripciones` | `delegacion_id` | `delegaciones.id` | — |
-| `adcripciones` | `nivel_integrante_id` | `nivel_integrantes.id` | — |
+| `adscripciones` | `integrante_id` | `integrantes.id` | CASCADE |
+| `adscripciones` | `delegacion_id` | `delegaciones.id` | — |
+| `adscripciones` | `nivel_integrante_id` | `nivel_integrantes.id` | — |
 | `users` | `integrante_id` | `integrantes.id` | SET NULL |
 
 ---

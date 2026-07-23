@@ -37,7 +37,7 @@ Tabla: `nivel_integrantes`
 | Método | Tipo | Modelo relacionado |
 |---|---|---|
 | `integrantes()` | `hasMany` | `Integrante` |
-| `adcripciones()` | `hasMany` | `Adcripcion` |
+| `adscripciones()` | `hasMany` | `Adcripcion` |
 
 ---
 
@@ -51,7 +51,7 @@ Tabla: `delegaciones`
 |---|---|---|
 | `region()` | `belongsTo` | `Region` |
 | `nivelDelegacion()` | `belongsTo` | `NivelDelegacion` |
-| `adcripciones()` | `hasMany` | `Adcripcion` |
+| `adscripciones()` | `hasMany` | `Adcripcion` |
 
 ---
 
@@ -70,13 +70,13 @@ Tabla: `integrantes`
 | Método | Tipo | Modelo relacionado |
 |---|---|---|
 | `nivelIntegrante()` | `belongsTo` | `NivelIntegrante` |
-| `adcripciones()` | `hasMany` | `Adcripcion` |
+| `adscripciones()` | `hasMany` | `Adcripcion` |
 | `user()` | `hasOne` | `User` |
 
 ---
 
 ## `Adcripcion`
-Tabla: `adcripciones`
+Tabla: `adscripciones`
 **Traits:** `SoftDeletes`
 
 **Fillable:** `integrante_id`, `delegacion_id`, `nivel_integrante_id`, `funcion`, `fecha_ingreso_sev`, `fecha_ingreso_sindicato`, `estatus_adscripcion`

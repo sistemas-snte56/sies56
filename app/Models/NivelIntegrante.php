@@ -25,9 +25,9 @@ class NivelIntegrante extends Model
     }
 
     /**
-     * Adcripciones asociadas directamente a este nivel.
+     * adscripciones asociadas directamente a este nivel.
      */
-    public function adcripciones(): HasMany
+    public function adscripciones(): HasMany
     {
         return $this->hasMany(Adscripcion::class);
     }

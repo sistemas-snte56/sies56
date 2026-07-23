@@ -104,6 +104,24 @@ class Integrante extends Model
         );
     }
 
+    protected function numeroPersonal(): Attribute
+    {
+        return Attribute::make(
+            set: fn (?string $value) => $value
+                ? trim($value)
+                : null,
+        );
+    }    
+
+    protected function casts(): array
+    {
+        return [
+            'fecha_ingreso_sev' => 'date',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }    
+
     /**
      * Nombre completo del integrante.
      */

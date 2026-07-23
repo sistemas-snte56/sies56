@@ -31,7 +31,7 @@ return new class extends Migration
             $table->date('fecha_ingreso_sindicato')->nullable();
             
             // Estatus Local de la Adscripción
-            // Permite que un integrante tenga una plaza ACTIVA y otra en PENDIENTE_BAJA
+            // Permite que un integrante tenga una Delegación ACTIVA y otra en PENDIENTE_BAJA
             $table->string('estatus_adscripcion')->default('ACTIVO')->index();
             
             $table->timestamps();

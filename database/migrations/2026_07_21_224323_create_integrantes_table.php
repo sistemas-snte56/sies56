@@ -20,7 +20,7 @@ return new class extends Migration
             
             // Identificadores únicos 
             // Identificador Laboral Único (Clave Presupuestal / Número de Personal)
-            // Se marca como unique porque una plaza no puede ser ocupada por dos registros
+            // Se marca como unique porque una delegación no puede ser ocupada por dos registros
             $table->string('rfc', 13)->unique()->nullable()->index();
             $table->string('curp', 18)->unique()->nullable()->index();
             $table->string('numero_personal')->unique()->nullable()->index();            
@@ -35,7 +35,7 @@ return new class extends Migration
             // Relación con el catálogo de 12 ítems
             $table->foreignId('nivel_integrante_id')->constrained('nivel_integrantes');
             
-            // Estatus Global (Afecta a todas sus plazas en cascada si es necesario)
+            // Estatus Global (Afecta a todas sus delegacións en cascada si es necesario)
             // ACTIVO, INACTIVO (por renuncia/expulsión), FINADO
             $table->string('estatus_global')->default('ACTIVO')->index();
             

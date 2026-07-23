@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Integrantes\RelationManagers;
 
 use App\Filament\Resources\Integrantes\IntegranteResource;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
+// use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Schemas\Schema;
@@ -26,41 +26,25 @@ class AdscripcionesRelationManager extends RelationManager
     {
         return $schema
             ->components([
-                // Select::make('delegacion_id')
-                //     ->label('Delegación')
-                //     ->relationship('delegacion', 'nombre_completo')
-                //     // ->searchable()
-                //     ->preload()
-                //     ->required()
-                //     ->columnSpan(2),
-
-
-
-Select::make('delegacion_id')
-    ->label('Delegación')
-    ->relationship(
-        name: 'delegacion',
-        titleAttribute: 'delegacion',
-    )
-    ->getOptionLabelFromRecordUsing(
-        fn ($record) => $record->nombre_completo
-    )
-    ->searchable(['delegacion', 'sede'])
-    ->preload()
-    ->required()
-    ->columnSpan(2),
-
+                Select::make('delegacion_id')
+                    ->label('Delegación')
+                    ->relationship(
+                        name: 'delegacion',
+                        titleAttribute: 'delegacion',
+                    )
+                    ->getOptionLabelFromRecordUsing(
+                        fn ($record) => $record->nombre_completo
+                    )
+                    ->searchable(['delegacion', 'sede'])
+                    ->preload()
+                    ->required()
+                    ->columnSpan(2),
 
                 Select::make('nivel_integrante_id')
                     ->label('Nivel al que pertenece')
                     ->relationship('nivelIntegrante', 'nombre')
                     ->required()
                     ->columnSpan(1),
-
-                // TextInput::make('funcion')
-                //     ->label('Función que desempeña')
-                //     ->required()
-                //     ->columnSpan(2),
 
                 Select::make('funcion')
                     ->label('Función que desempeña')
@@ -75,13 +59,13 @@ Select::make('delegacion_id')
                     ->required()
                     ->columnSpan(2),
 
-                DatePicker::make('fecha_ingreso_sep')
+                DatePicker::make('fecha_ingreso_sev')
                     ->label('Fecha Ingreso SEP')
                     ->native(false)
                     ->columnSpan(1),
 
                 Select::make('estatus_adscripcion')
-                    ->label('Estatus de esta Plaza')
+                    ->label('Estatus de la Delegación')
                     ->options([
                         'ACTIVO' => 'Activo',
                         'PENDIENTE_BAJA' => 'Pendiente de Baja',
@@ -124,7 +108,7 @@ Select::make('delegacion_id')
             ])
             ->headerActions([
                 CreateAction::make()
-                    ->label('Añadir Plaza'),
+                    ->label('Añadir Delegación'),
             ])
             ->actions([
                 EditAction::make(),
